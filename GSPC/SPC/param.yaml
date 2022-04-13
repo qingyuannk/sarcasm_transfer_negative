@@ -1,0 +1,19 @@
+model_output: 2
+epoch: 30
+batch: 32
+positive_se : 0.2
+lr: 0.000001
+model_name: "result/mlt_senti_class"
+clean_tag: 'neutral'
+class: ["negative","positive"]
+UNCASED: "../../transformers/bertweet-base"
+VOCAB: 'vocab.txt'
+path: "2022-4-7"
+start_dir: "../data/SemEval2017-Task1/train_data"
+dataset:
+  senti_train: []
+  senti_test: ["../data/SemEval2017-Task1/test_data/SemEval2017-task4-test.subtask-A.english.txt"]
+  sms_train: ["../data/SemEval2018-Task3/train_data/sar_train.txt"]
+  sms_test: ["../data/SemEval2018-Task3/test_data/sar_test.txt"]
+  
+
