@@ -1,4 +1,10 @@
-- ##### The  config parameters setting of model training and testing
+# General Sentiment Polarity Classification for Sarcasm Challenge
+
+Sentiment polarity classification (SPC) is a fundamental and practical research problem for sentiment analysis. Meanwhile, sarcasm detection is a task to detect sarcasm in textual data. Previous works solve these two problems independently and neglect the fact that sarcasm is omnipresent and non-negligible during sentiment polarity classification. Therefore, in this paper, we simulate a general sentiment analysis scenario where the sarcasm could be input and point out the limitations of current mainstream frameworks by systematic investigation. To address this problem, we propose an Sp-SPC training framework to train a SPC model that is robust to sarcasm while maintaining state-of-the-art classification performance. Extensive experiments demonstrate the effectiveness of and visualization show the interpretability of our training framework.
+
+# Usage
+
+- ##### The  config parameters setting during model training and testing
 
   ```yaml
   model_output: 2   					##two or three classification 
@@ -64,4 +70,16 @@
   python3 example.py
   ```
 
-  
+
+# Requirement
+
+Pytorch >=1.10
+
+numpy >= 1.21.4
+
+seaborn >= 0.11
+
+Matplotlib >= 3.5.1
+
+Pandas >= 1.3.5
+
