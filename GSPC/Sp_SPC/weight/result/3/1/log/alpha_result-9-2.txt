@@ -1,0 +1,64 @@
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Some weights of the model checkpoint at /home/liqingyuan/liqingyuan/source/transformers/bertweet-base were not used when initializing RobertaModel: ['lm_head.dense.weight', 'lm_head.layer_norm.bias', 'lm_head.decoder.bias', 'lm_head.layer_norm.weight', 'lm_head.dense.bias', 'lm_head.bias', 'lm_head.decoder.weight']
+- This IS expected if you are initializing RobertaModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing RobertaModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+409600
+2022-4-4/1/model/sp_spc_no_0.1_409600_32.bin
+2022-4-4/1/result/sp_spc_no_0.1_409600_32_3.csv
+2022-4-4/1/result/sp_spc_new_no_0.1_409600_32_3.csv
+['twitter-2015test-A.txt', 'twitter-2016test-A.txt', 'twitter-2016devtest-A.txt', 'twitter-2014test-A.txt', 'twitter-2013train-A.txt', 'twitter-2015train-A.txt', 'twitter-2016train-A.txt', 'twitter-2013dev-A.txt', 'twitter-2013test-A.txt', 'twitter-2016dev-A.txt']
+[0;35;46m senti_train_data read successfully! 50248 [0m
+7800 42448
+1
+50248 50248
+[0;35;46m senti_test_data read successfully! 12284 [0m
+10007 10007
+[0;35;46m sms_train_data read successfully! 10007  [0m
+1517
+[0;35;46m sms_test_data read successfully! 705 [0m
+705 705
+[0;35;46m  new_test_data read successfully! 12989 [0m
+dict_keys(['input_ids', 'attention_mask'])
+dict_keys(['input_ids', 'attention_mask'])
+
+[0;35;46m train_data loader successfully: %s [0m
+1571 313
+dict_keys(['input_ids', 'attention_mask'])
+dict_keys(['input_ids', 'attention_mask'])
+
+[0;35;46m test_data loader successfully: %s [0m
+dict_keys(['input_ids', 'attention_mask'])
+
+[0;35;46m cuda 能用 [0m
+
+[0;35;46m Epoch/epochs: 1/31 process start.[0m
+Traceback (most recent call last):
+  File "train.py", line 315, in <module>
+    senti_train_loss= model_utils.train(senti_train_loader)
+  File "train.py", line 217, in train
+    out1,out2,emb1_senti,emb2_senti=self.model(input_ids,mask)
+  File "/home/liqingyuan/.conda/envs/lqy/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/liqingyuan/liqingyuan/source/MLT/model.py", line 59, in forward
+    tower1_emb = self.shared_layer(input_ids, attention_mask)
+  File "/home/liqingyuan/.conda/envs/lqy/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/liqingyuan/.conda/envs/lqy/lib/python3.7/site-packages/transformers/models/roberta/modeling_roberta.py", line 863, in forward
+    return_dict=return_dict,
+  File "/home/liqingyuan/.conda/envs/lqy/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/liqingyuan/.conda/envs/lqy/lib/python3.7/site-packages/transformers/models/roberta/modeling_roberta.py", line 533, in forward
+    output_attentions,
+  File "/home/liqingyuan/.conda/envs/lqy/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/liqingyuan/.conda/envs/lqy/lib/python3.7/site-packages/transformers/models/roberta/modeling_roberta.py", line 417, in forward
+    past_key_value=self_attn_past_key_value,
+  File "/home/liqingyuan/.conda/envs/lqy/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/liqingyuan/.conda/envs/lqy/lib/python3.7/site-packages/transformers/models/roberta/modeling_roberta.py", line 346, in forward
+    output_attentions,
+  File "/home/liqingyuan/.conda/envs/lqy/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/liqingyuan/.conda/envs/lqy/lib/python3.7/site-packages/transformers/models/roberta/modeling_roberta.py", line 259, in forward
+    attention_scores = attention_scores / math.sqrt(self.attention_head_size)
+RuntimeError: CUDA out of memory. Tried to allocate 24.00 MiB (GPU 0; 39.59 GiB total capacity; 906.83 MiB already allocated; 27.44 MiB free; 954.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
